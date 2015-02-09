@@ -4,6 +4,9 @@ import random
 
 DEBUG=False
 
+# TODO turn the monty hall bit into a function
+# TODO PEP8 the whole thang
+
 # basic parameters
 BOXES=3 # the number of boxes (3 for classic Monty Hall)
 RUNS=30000 # number of simulation runs
