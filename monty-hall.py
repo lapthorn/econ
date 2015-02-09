@@ -18,6 +18,9 @@ ROUNDS=0 # number of rounds so far
 
 CHANGE=False # strategy for player - change or stick - might allow both
 
+print ("Simulating the Monty Hall problem with", BOXES, "boxes, and", RUNS, "runs.")
+print ()
+
 while (ROUNDS < RUNS):
     BOXSET={} # set for the possible boxes
     # generate the set of boxes
@@ -47,17 +50,14 @@ while (ROUNDS < RUNS):
     if DEBUG: print (' Left:', BOXSET)
     if DEBUG: print (' MYBOXES:', MYBOXES)
 
-    # then remove the CAR from the possible set
-    # we'll either have one or two choices for Monty - if there are two
-    # pick one at random
-
-    # Monty picks and shows an empty box
-    # there's only one or two left.  If two pick one at random
+    # Monty now picks and shows an empty box.
+    # There's either one or two boxes to choose from.
+    # Pick one at random
 
     MONTYPICK=random.sample(set(BOXSET),1)
     if DEBUG: print (' Montypick:', MONTYPICK)
 
-    # remove this from contestent set
+    # remove Monty's choice from the contestent set
     MYBOXES=MYBOXES-set(MONTYPICK)
     if DEBUG: print (' MYBOXES:', MYBOXES)
 
@@ -77,12 +77,9 @@ while (ROUNDS < RUNS):
         if DEBUG: print (' CHANGEWIN!')
 
     ROUNDS+=1
-
     # finish
 
 # the results
-print ("Simulating the Monty Hall problem with", BOXES, "boxes, and", RUNS, "runs.")
-print ()
 print ('  STICKWINS:', STICKWINS, STICKWINS/ROUNDS)
 print (' CHANGEWINS:', CHANGEWINS, CHANGEWINS/ROUNDS)
 print ('     ROUNDS:', ROUNDS)
